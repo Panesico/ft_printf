@@ -77,23 +77,23 @@ unsigned int	ft_convert(char c, va_list arglist)
 
 	len = 0;
 	if (c == 's')
-		len += ft_putstr_fd(va_arg(arglist, char *), 1);
+		len = ft_putstr_fd(va_arg(arglist, char *), 1);
 	else if (c == 'c')
-		len += ft_putchar_fd(va_arg(arglist, int), 1);
+		len = ft_putchar_fd(va_arg(arglist, int), 1);
 	else if (c == 'x')
-		len += ft_putbase(va_arg(arglist, unsigned long long),
+		len = ft_putbase(va_arg(arglist, unsigned long long),
 				"0123456789abcdef");
 	else if (c == 'X')
-		len += ft_putbase(va_arg(arglist, unsigned long long),
+		len = ft_putbase(va_arg(arglist, unsigned long long),
 				"0123456789ABCDEF");
 	else if (c == 'p')
-		len += ft_putptr(va_arg(arglist, unsigned long long),
+		len = ft_putptr(va_arg(arglist, unsigned long long),
 				"0123456789abcdef");
 	else if (c == 'd' || c == 'i')
-		len += ft_print_itoa(va_arg(arglist, int));
+		len = ft_print_itoa(va_arg(arglist, int));
 	else if (c == 'u')
-		len += ft_putunbr_fd(va_arg(arglist, unsigned int), 1);
+		len = ft_putunbr_fd(va_arg(arglist, unsigned int), 1);
 	else if (c == '%')
-		len += ft_putchar_fd('%', 1);
+		len = ft_putchar_fd('%', 1);
 	return (len);
 }

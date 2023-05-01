@@ -20,7 +20,13 @@ unsigned int	ft_putstr_fd(char *s, int fd)
 
 unsigned int	ft_print_itoa(int num)
 {
-	return (ft_putstr_fd(ft_itoa(num), 1));
+	char		*str;
+	unsigned int	len;
+	
+	str = ft_itoa(num);
+	len = ft_putstr_fd(str, 1);
+	free(str);
+	return (len);
 }
 
 unsigned int	ft_putunbr_fd(unsigned int n, int fd)

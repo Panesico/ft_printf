@@ -1,28 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jorgfern <jorgfern@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/03 20:38:38 by jorgfern          #+#    #+#             */
+/*   Updated: 2023/05/04 01:23:26 by jorgfern         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-unsigned int	ft_putchar_fd(int c, int fd)
+int	ft_putchar_fd(int c, int fd)
 {
 	write(fd, &c, 1);
 	return (1);
 }
 
-unsigned int	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	unsigned int	print_len;
-	unsigned int	i;
+	int	print_len;
+	int	i;
 
 	print_len = 0;
 	i = 0;
+	if (!s)
+		s = "(null)";
 	while (s[i])
 		print_len += ft_putchar_fd(s[i++], fd);
 	return (print_len);
 }
 
-unsigned int	ft_print_itoa(int num)
+int	ft_print_itoa(int num)
 {
-	char		*str;
-	unsigned int	len;
-	
+	char	*str;
+	int		len;
+
 	str = ft_itoa(num);
 	len = ft_putstr_fd(str, 1);
 	free(str);
@@ -31,7 +45,7 @@ unsigned int	ft_print_itoa(int num)
 
 unsigned int	ft_putunbr_fd(unsigned int n, int fd)
 {
-	unsigned int	len;
+	int	len;
 
 	len = 0;
 	if (n >= 10)

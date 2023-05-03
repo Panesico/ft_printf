@@ -1,14 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jorgfern <jorgfern@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/03 20:38:39 by jorgfern          #+#    #+#             */
+/*   Updated: 2023/05/04 01:22:45 by jorgfern         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-unsigned int	ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list			arglist;
-	unsigned int	print_len;
-	unsigned int	i;
+	va_list		arglist;
+	int			print_len;
+	int			i;
 
 	va_start(arglist, str);
 	print_len = 0;
 	i = 0;
+	if (!str)
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] == '%')

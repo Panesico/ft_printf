@@ -1,7 +1,7 @@
 CFLAGS  = -Wall -Wextra -Werror
 NAME    = libftprintf.a
 AR		= ar -rcs
-SRC		= ft_printf.c ft_printf_utils.c ft_printf_utils2.c
+SRC		= ft_printf.c ft_printf_utils.c ft_printf_utils2.c ft_itoa.c
 OBJ		= ${SRC:.c=.o}
 
 all: $(NAME)

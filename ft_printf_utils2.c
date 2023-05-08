@@ -64,10 +64,10 @@ int	ft_convert(char c, va_list arglist)
 	else if (c == 's')
 		len = ft_putstr_fd(va_arg(arglist, char *), 1);
 	else if (c == 'x')
-		len = ft_putbase(va_arg(arglist, unsigned long long),
+		len = ft_putbase(va_arg(arglist, unsigned int),
 				"0123456789abcdef");
 	else if (c == 'X')
-		len = ft_putbase(va_arg(arglist, unsigned long long),
+		len = ft_putbase(va_arg(arglist, unsigned int),
 				"0123456789ABCDEF");
 	else if (c == 'p')
 		len = ft_putptr(va_arg(arglist, unsigned long long),

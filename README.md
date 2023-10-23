@@ -23,7 +23,6 @@ example: gcc main.c $(PRINTF)
 ## Usage
 
 > ft_printf("string", variable(if any % is added in the string));
-<br>
 example :
 > ft_printf("Hello my name is %s and I have %d year of experience atm\n", "Jorge", 1);
 
